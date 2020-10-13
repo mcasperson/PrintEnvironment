@@ -1,0 +1,11 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <table>
+            <tr th:each="env : ${environment}">
+                <td th:text="${env.key}">name</td>
+                <td th:text="${env.value}">value</td>
+            </tr>
+        </table>
+    </body>
+</html>
