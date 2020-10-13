@@ -12,4 +12,5 @@ EXPOSE 8080
 WORKDIR /app
 
 COPY --from=build-env /app/target/demo-0.0.1-SNAPSHOT.jar ./demo-0.0.1-SNAPSHOT.jar
-CMD ["/usr/bin/java", "-jar", "/app/demo-0.0.1-SNAPSHOT.jar"]
+CMD ["-jar", "/app/demo-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT [ "java" ]
