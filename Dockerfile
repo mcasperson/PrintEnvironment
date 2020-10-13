@@ -5,11 +5,11 @@ COPY pom.xml ./
 RUN mvn dependency:go-offline
 
 COPY . ./
-RUN mvn package -DfinalName=app
+RUN mvn package
 
 FROM openjdk:11-jre
 EXPOSE 8080
 WORKDIR /app
 
-COPY --from=build-env /app/target/app.jar ./app.jar
-CMD ["/usr/bin/java", "-jar", "/app/app.jar"]
+COPY --from=build-env /app/target/demo-0.0.1-SNAPSHOT.jar ./demo-0.0.1-SNAPSHOT.jar
+CMD ["/usr/bin/java", "-jar", "/app/demo-0.0.1-SNAPSHOT.jar"]
